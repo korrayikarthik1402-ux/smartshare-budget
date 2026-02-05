@@ -21,22 +21,26 @@ import { IncomeService } from '../../services/income.service';
       </div>
 
       <div class="form-content">
-        <div class="form-section">
-          <label class="section-label">Income Source</label>
+        <div class="form-field">
           <input
             type="text"
-            placeholder="Salary, Freelance, Bonus..."
+            id="income-source"
+            placeholder=" "
             [(ngModel)]="income.source"
-            class="form-input">
+            class="form-input"
+            [class.filled]="income.source">
+          <label for="income-source" class="floating-label">Income Source</label>
         </div>
 
-        <div class="form-section">
-          <label class="section-label">Amount (₹)</label>
+        <div class="form-field">
           <input
             type="number"
-            placeholder="0.00"
+            id="income-amount"
+            placeholder=" "
             [(ngModel)]="income.amount"
-            class="form-input">
+            class="form-input"
+            [class.filled]="income.amount">
+          <label for="income-amount" class="floating-label">Amount (₹)</label>
         </div>
       </div>
 

@@ -22,46 +22,54 @@ import { UpcomingPaymentService } from '../../services/upcoming-payment.service'
       </div>
 
       <div class="form-content">
-        <div class="form-section">
-          <label class="section-label">Description</label>
+        <div class="form-field">
           <input
             type="text"
-            placeholder="What did you spend on?"
+            id="expense-description"
+            placeholder=" "
             [(ngModel)]="expense.description"
-            class="form-input">
+            class="form-input"
+            [class.filled]="expense.description">
+          <label for="expense-description" class="floating-label">Description</label>
         </div>
 
         <div class="form-row">
-          <div class="form-section">
-            <label class="section-label">Amount (₹)</label>
+          <div class="form-field">
             <input
               type="number"
-              placeholder="0.00"
+              id="expense-amount"
+              placeholder=" "
               [(ngModel)]="expense.amount"
-              class="form-input">
+              class="form-input"
+              [class.filled]="expense.amount">
+            <label for="expense-amount" class="floating-label">Amount (₹)</label>
           </div>
 
-          <div class="form-section">
-            <label class="section-label">Category</label>
-            <select [(ngModel)]="expense.category" class="form-select">
+          <div class="form-field">
+            <select
+              id="expense-category"
+              [(ngModel)]="expense.category"
+              class="form-select">
               <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
             </select>
+            <label for="expense-category" class="floating-label select-label">Category</label>
           </div>
         </div>
 
-        <div class="form-section checkbox-section">
+        <div class="checkbox-section">
           <label class="checkbox-label">
             <input type="checkbox" [(ngModel)]="isUpcoming">
             <span class="checkbox-text">Mark as upcoming payment</span>
           </label>
         </div>
 
-        <div *ngIf="isUpcoming" class="form-section date-section">
-          <label class="section-label">Due Date</label>
+        <div *ngIf="isUpcoming" class="form-field date-section">
           <input
             type="date"
+            id="expense-duedate"
             [(ngModel)]="dueDate"
-            class="form-input">
+            class="form-input date-input">
+          <label for="expense-duedate" class="floating-label date-label">Due Date</label>
         </div>
       </div>
 
